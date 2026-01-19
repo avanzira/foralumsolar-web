@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://www.foralumsolar.es/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.foralumsolar.es/about.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://www.foralumsolar.es/services/</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.foralumsolar.es/services/fotovoltaica.html</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.foralumsolar.es/services/subvenciones.html</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Projects -->
+  <url>
+    <loc>https://www.foralumsolar.es/projects/</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.foralumsolar.es/projects/industrial.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.foralumsolar.es/projects/administraciones.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.foralumsolar.es/projects/residencial.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- News -->
+  <url>
+    <loc>https://www.foralumsolar.es/news/</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.foralumsolar.es/contact.html</loc>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://www.foralumsolar.es/legal.html</loc>
+    <priority>0.30</priority>
+  </url>
+
+</urlset>
