@@ -118,6 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (event) => {
     const opener = event.target.closest("[data-modal-target]");
     if (opener) {
+      if (opener.tagName === "A") {
+        event.preventDefault();
+      }
       const targetId = opener.getAttribute("data-modal-target");
       openModal(document.getElementById(targetId));
       return;
