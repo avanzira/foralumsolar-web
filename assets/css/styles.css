@@ -26,7 +26,7 @@
   --space-125: 1.25rem;
   --space-2: 2rem;
   --space-3: 3rem;
-  --header-h: 48px;
+  --header-h: 0px;
 }
 
 /* Reset / base */
@@ -111,9 +111,6 @@ section[id] {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 
 /* Components */
 .skip-link {
@@ -148,8 +145,22 @@ section[id] {
   padding: 0.75rem 0;
 }
 
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
 .brand img {
   display: block;
+}
+
+.brand-title {
+  color: #f9d12c;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 1.5rem;
 }
 
 .site-nav .nav-list {
@@ -166,20 +177,6 @@ section[id] {
   color: #fff;
 }
 
-.site-nav a.is-active {
-  opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 0.35em;
-  text-decoration-thickness: 2px;
-}
-
-.site-nav a[aria-current="page"] {
-  opacity: 1;
-}
-
-.nav-cta {
-  margin-left: 0.75rem;
-}
 
 .nav-toggle {
   display: none;
@@ -267,14 +264,6 @@ section[id] {
   transform: translateY(-1px);
 }
 
-.link-whatsapp {
-  color: inherit;
-  text-decoration: none;
-}
-
-.link-whatsapp:hover {
-  text-decoration: underline;
-}
 
 .wa-icon {
   width: 1.1rem;
@@ -516,6 +505,22 @@ textarea:focus {
   text-decoration: underline;
 }
 
+.footer-link-btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-link-btn:hover,
+.footer-link-btn:focus-visible {
+  text-decoration: underline;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   margin-top: 2rem;
@@ -525,6 +530,71 @@ textarea:focus {
 .footer-small {
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 92vw);
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.modal-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+.modal-text {
+  color: var(--muted);
+}
+
+.modal-text p {
+  margin: 0 0 0.75rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.is-modal-open {
+  overflow: hidden;
 }
 
 /* Utilities */
@@ -600,8 +670,7 @@ button[disabled] {
     align-items: flex-start;
   }
 
-  .grid-2,
-  .grid-3 {
+  .grid-2 {
     grid-template-columns: 1fr;
   }
 

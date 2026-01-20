@@ -13,7 +13,7 @@
       content="Foralum Solar: especialistas en instalaciones fotovoltaicas y gestión de subvenciones (EVE e IDAE). Actuamos en Euskadi y Cuenca. Contacto por WhatsApp, teléfono o email."
     />
     <link rel="canonical" href="https://www.foralumsolar.es/" />
-<!-- Open Graph -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Foralum Solar" />
     <meta
@@ -103,6 +103,7 @@
             height="40"
             loading="eager"
           />
+          <span class="brand-title">FORALUM SOLAR</span>
         </a>
 
         <button
@@ -118,20 +119,13 @@
 
         <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
           <ul class="nav-list">
-            <li><a href="index.html" data-nav-link>Inicio</a></li>
-            <li><a href="about.html" data-nav-link>Sobre nosotros</a></li>
-            <li><a href="services/" data-nav-link>Servicios</a></li>
-            <li><a href="projects/" data-nav-link>Proyectos</a></li>
-            <li><a href="news/" data-nav-link>Noticias</a></li>
-            <li><a href="contact.html" data-nav-link>Contacto</a></li>
+            <li><a href="#inicio" data-nav-link>Inicio</a></li>
+            <li><a href="#sobre" data-nav-link>Sobre nosotros</a></li>
+            <li><a href="#servicios" data-nav-link>Servicios</a></li>
+            <li><a href="#proyectos" data-nav-link>Proyectos</a></li>
+            <li><a href="#noticias" data-nav-link>Noticias</a></li>
+            <li><a href="#contacto" data-nav-link>Contacto</a></li>
           </ul>
-
-          <div class="nav-cta">
-            <a class="btn btn-whatsapp" data-wa-phone="34623191321">
-              <span class="wa-icon" aria-hidden="true"></span>
-              <span class="wa-text">WhatsApp</span>
-            </a>
-          </div>
         </nav>
       </div>
     </header>
@@ -199,11 +193,11 @@
         <div class="container">
           <div class="section-header">
             <div class="eyebrow">Sobre nosotros</div>
-            <h2 class="h2">Fotovoltaica con foco en calidad y garantías</h2>
+            <h2 class="h2">Fotovoltaica con calidad y total garantía</h2>
             <p class="lead">
-              Especialistas en instalaciones fotovoltaicas y gestión de
-              subvenciones (EVE e IDAE). Actuamos en Euskadi y Cuenca con
-              proveedores Tier 1 y máximas garantías.
+              Somos especialistas en instalaciones fotovoltaicas, con más de 10
+              años de experiencia. Sólo trabajamos con proveedores de la máxima
+              calidad, Tier1.
             </p>
           </div>
 
@@ -216,10 +210,10 @@
               </p>
             </article>
             <article class="card">
-              <h3>Acompañamiento completo</h3>
+              <h3>Proyectos llave en mano</h3>
               <p>
-                Te guiamos con la documentación y la tramitación de ayudas para
-                que el proceso sea claro y sin fricciones.
+                Te entregamos la instalación legalizada y nos ocupamos de todas
+                las gestiones necesarias: industria, subvenciones, etc...
               </p>
             </article>
           </div>
@@ -235,8 +229,8 @@
             <div class="eyebrow">Servicios</div>
             <h2 class="h2">Fotovoltaica y subvenciones, de principio a fin</h2>
             <p class="lead">
-              Ejecutamos instalaciones fotovoltaicas y te acompañamos con la
-              gestión de ayudas para que el proceso sea claro y sin fricciones.
+              Ejecutamos instalaciones fotovoltaicas y nos ocupamos de la
+              gestión de ayudas.
             </p>
           </div>
 
@@ -250,7 +244,7 @@
               <ul class="list">
                 <li>Estudio y propuesta técnica</li>
                 <li>Montaje profesional y seguro</li>
-                <li>Componentes Tier 1 y garantía</li>
+                <li>Componentes Tier 1 y máxmima garantía</li>
               </ul>
               <p class="mt-09">
                 <a class="btn btn-secondary" href="services/fotovoltaica.html"
@@ -261,10 +255,7 @@
 
             <article class="card">
               <h3>Gestión de subvenciones (EVE e IDAE)</h3>
-              <p>
-                Tramitamos ayudas para autoconsumo y, cuando aplique,
-                almacenamiento, con documentación ordenada y seguimiento.
-              </p>
+              <p>Tramitamos ayudas para autoconsumo y almacenamiento.</p>
               <ul class="list">
                 <li>Asesoramiento sobre convocatorias</li>
                 <li>Preparación y presentación de documentación</li>
@@ -550,13 +541,6 @@
               <p class="mt-1 text-muted">
                 Garantías: máximas garantías del mercado, proveedores Tier 1.
               </p>
-
-              <p class="mt-1">
-                <a class="btn btn-whatsapp" data-wa-phone="34623191321">
-                  <span class="wa-icon" aria-hidden="true"></span>
-                  <span class="wa-text">WhatsApp</span>
-                </a>
-              </p>
             </div>
 
             <div class="card">
@@ -673,7 +657,15 @@
         <section aria-label="Enlaces legales">
           <h2 class="footer-title">Enlaces</h2>
           <ul class="footer-links">
-            <li><a href="legal.html">Aviso legal</a></li>
+            <li>
+              <button
+                class="footer-link-btn"
+                type="button"
+                data-modal-target="legal-modal"
+              >
+                Aviso legal
+              </button>
+            </li>
           </ul>
         </section>
       </div>
@@ -685,6 +677,93 @@
         </p>
       </div>
     </footer>
+
+    <div
+      class="modal"
+      id="cookie-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cookie-modal-title"
+      aria-describedby="cookie-modal-desc"
+      hidden
+    >
+      <div class="modal-backdrop"></div>
+      <div class="modal-panel" role="document">
+        <h2 class="modal-title" id="cookie-modal-title">
+          Consentimiento de cookies
+        </h2>
+        <p class="modal-text" id="cookie-modal-desc">
+          Usamos cookies tecnicas para el funcionamiento basico del sitio y
+          para recordar tu eleccion. Puedes aceptar o rechazar. La decision se
+          guarda en tu navegador.
+        </p>
+        <div class="modal-actions">
+          <button class="btn btn-secondary" type="button" data-cookie-reject>
+            Rechazar
+          </button>
+          <button class="btn btn-primary" type="button" data-cookie-accept>
+            Aceptar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal"
+      id="legal-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="legal-modal-title"
+      aria-describedby="legal-modal-desc"
+      hidden
+    >
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-panel" role="document">
+        <button
+          class="modal-close"
+          type="button"
+          aria-label="Cerrar aviso legal"
+          data-modal-close
+        >
+          x
+        </button>
+        <h2 class="modal-title" id="legal-modal-title">Aviso legal</h2>
+        <div class="modal-text" id="legal-modal-desc">
+          <p>
+            Titular del sitio: Foralum Solar. Contacto:
+            <a href="mailto:ventas@foralumsolar.es"
+              >ventas@foralumsolar.es</a
+            >
+            y telefono <a href="tel:+34623191321">+34 623 191 321</a>.
+          </p>
+          <p>
+            Domicilio: Ronda Sur 29, 16200 Motilla del Palancar (Cuenca) y
+            Bista-Eder Kalea 10, 20600 Eibar (Gipuzkoa).
+          </p>
+          <p>
+            El usuario se compromete a un uso adecuado del sitio web y a no
+            realizar acciones que puedan danar, inutilizar o sobrecargar el
+            servicio.
+          </p>
+          <p>
+            La propiedad intelectual e industrial de los contenidos del sitio
+            pertenece a Foralum Solar o a sus licenciantes. Queda prohibida su
+            reproduccion, distribucion o comunicacion publica sin autorizacion
+            previa.
+          </p>
+          <p>
+            Este sitio puede incluir enlaces a terceros. Foralum Solar no se
+            responsabiliza del contenido ni de las politicas de dichos sitios.
+          </p>
+          <p>
+            Para el ejercicio de derechos o cualquier consulta legal, escribe a
+            <a href="mailto:ventas@foralumsolar.es"
+              >ventas@foralumsolar.es</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <script src="assets/js/main.js" defer></script>
   </body>

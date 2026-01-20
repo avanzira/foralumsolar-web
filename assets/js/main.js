@@ -41,32 +41,122 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const currentUrl = window.location.pathname;
-  let currentPath = currentUrl;
-  if (currentPath === "/") {
-    currentPath = "/index.html";
-  } else if (currentPath.endsWith("/")) {
-    currentPath = `${currentPath}index.html`;
-  }
+  // Accessible modal handling (focus trap, ESC, persistent consent).
+  const focusableSelector =
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+  let activeModal = null;
+  let lastFocused = null;
 
-  const navLinks = document.querySelectorAll("header nav a[href]");
-  navLinks.forEach((link) => {
-    const rawHref = link.getAttribute("href");
-    if (!rawHref || rawHref.startsWith("http")) return;
-    if (link.matches("[data-wa-phone], .btn-whatsapp")) return;
+  const getFocusable = (modal) =>
+    Array.from(modal.querySelectorAll(focusableSelector)).filter(
+      (el) => !el.hasAttribute("disabled")
+    );
 
-    let linkPath = new URL(rawHref, window.location.href).pathname;
-    if (linkPath === "/") {
-      linkPath = "/index.html";
-    } else if (linkPath.endsWith("/")) {
-      linkPath = `${linkPath}index.html`;
+  const trapFocus = (event) => {
+    if (!activeModal || event.key !== "Tab") return;
+    const focusable = getFocusable(activeModal);
+    if (!focusable.length) {
+      event.preventDefault();
+      return;
     }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const isShift = event.shiftKey;
 
-    if (linkPath === currentPath) {
-      link.classList.add("is-active");
-      link.setAttribute("aria-current", "page");
+    if (isShift && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!isShift && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  const closeActiveModal = () => {
+    if (!activeModal) return;
+    activeModal.hidden = true;
+    document.body.classList.remove("is-modal-open");
+    document.removeEventListener("keydown", onKeydown);
+    if (lastFocused && typeof lastFocused.focus === "function") {
+      lastFocused.focus();
+    }
+    activeModal = null;
+  };
+
+  const openModal = (modal) => {
+    if (!modal || activeModal === modal) return;
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add("is-modal-open");
+    activeModal = modal;
+    document.addEventListener("keydown", onKeydown);
+    const focusable = getFocusable(modal);
+    const initial = focusable[0] || modal;
+    initial.focus({ preventScroll: true });
+  };
+
+  const setConsent = (value) => {
+    try {
+      localStorage.setItem("fs_cookie_consent", value);
+    } catch (err) {
+      // If storage is blocked, we still respect the session decision.
+    }
+  };
+
+  const onKeydown = (event) => {
+    if (!activeModal) return;
+    if (event.key === "Escape") {
+      if (activeModal.id === "cookie-modal") {
+        setConsent("rejected");
+      }
+      closeActiveModal();
+      return;
+    }
+    trapFocus(event);
+  };
+
+  document.addEventListener("click", (event) => {
+    const opener = event.target.closest("[data-modal-target]");
+    if (opener) {
+      const targetId = opener.getAttribute("data-modal-target");
+      openModal(document.getElementById(targetId));
+      return;
+    }
+    const closer = event.target.closest("[data-modal-close]");
+    if (closer) {
+      closeActiveModal();
     }
   });
+
+  const cookieModal = document.getElementById("cookie-modal");
+  if (cookieModal) {
+    const stored = (() => {
+      try {
+        return localStorage.getItem("fs_cookie_consent");
+      } catch (err) {
+        return null;
+      }
+    })();
+    if (!stored) {
+      openModal(cookieModal);
+    }
+
+    const acceptBtn = cookieModal.querySelector("[data-cookie-accept]");
+    const rejectBtn = cookieModal.querySelector("[data-cookie-reject]");
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", () => {
+        setConsent("accepted");
+        closeActiveModal();
+      });
+    }
+    if (rejectBtn) {
+      rejectBtn.addEventListener("click", () => {
+        setConsent("rejected");
+        closeActiveModal();
+      });
+    }
+  }
 
   const form = document.querySelector(".contact-form");
   if (!form) return;
