@@ -1,0 +1,86 @@
+{
+  "infrastructure": {
+    "lang": "es",
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre nosotros",
+      "services": "Servicios",
+      "projects": "Proyectos",
+      "news": "Noticias",
+      "contact": "Contacto"
+    },
+    "labels": {
+      "whatsapp": "WhatsApp",
+      "phone": "Teléfono",
+      "email": "Email"
+    },
+    "skip_link": "Saltar al contenido",
+    "locations_title": "Ubicaciones",
+    "legal_link": "Aviso legal",
+    "cta": {
+      "view_projects": "Ver proyectos",
+      "send_form": "Enviar consulta",
+      "back_home": "Volver al inicio"
+    },
+    "ui": {
+      "nav_open": "Abrir menú",
+      "nav_close": "Cerrar menú",
+      "form": {
+        "sending": "Enviando...",
+        "success": "Mensaje enviado correctamente. Te responderemos lo antes posible.",
+        "error": "No se pudo enviar el mensaje. Inténtalo de nuevo en unos minutos."
+      }
+    },
+    "aria": {
+      "brand_home": "Ir a inicio",
+      "nav_primary": "Navegación principal",
+      "hero": "Portada",
+      "kpis": "Ventajas principales",
+      "footer_company": "Datos de la empresa",
+      "footer_links": "Enlaces legales",
+      "legal_close": "Cerrar aviso legal"
+    },
+    "forms": {
+      "contact_labels": {
+        "name": "Nombre",
+        "phone": "Telefono",
+        "email": "Email",
+        "message": "Mensaje"
+      }
+    },
+    "errors": {
+      "error404": {
+        "eyebrow": "Error 404",
+        "title": "Página no encontrada",
+        "lead": "Lo sentimos, la página que buscas no existe o ha cambiado de dirección.",
+        "text": "Puedes volver a la página de inicio o navegar desde el menú superior.",
+        "meta_title": "Página no encontrada",
+        "meta_description": "La página que buscas no existe o ha sido movida."
+      }
+    },
+    "modals": {
+      "cookie": {
+        "title": "Consentimiento de cookies",
+        "text": "Usamos cookies tecnicas para el funcionamiento basico del sitio y para recordar tu eleccion. Puedes aceptar o rechazar. La decision se guarda en tu navegador.",
+        "reject": "Rechazar",
+        "accept": "Aceptar"
+      },
+      "legal": {
+        "title": "Aviso legal"
+      }
+    },
+    "footer": {
+      "links_title": "Enlaces"
+    },
+    "legal": {
+      "paragraphs": [
+        "Titular del sitio: {{company.brand_name}}. Contacto: <a href=\"mailto:{{company.contact_info.email}}\">{{company.contact_info.email}}</a> y telefono <a href=\"tel:+{{company.contact_info.phone_raw}}\">{{company.contact_info.phone}}</a>.",
+        "Domicilio: {{company.locations.0.contact_line}}.",
+        "El usuario se compromete a un uso adecuado del sitio web y a no realizar acciones que puedan danar, inutilizar o sobrecargar el servicio.",
+        "La propiedad intelectual e industrial de los contenidos del sitio pertenece a {{company.brand_name}} o a sus licenciantes. Queda prohibida su reproduccion, distribucion o comunicacion publica sin autorizacion previa.",
+        "Este sitio puede incluir enlaces a terceros. {{company.brand_name}} no se responsabiliza del contenido ni de las politicas de dichos sitios.",
+        "Para el ejercicio de derechos o cualquier consulta legal, escribe a <a href=\"mailto:{{company.contact_info.email}}\">{{company.contact_info.email}}</a>."
+      ]
+    }
+  }
+}

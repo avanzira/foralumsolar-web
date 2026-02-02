@@ -1,0 +1,142 @@
+{
+  "brand_name": "Foralum Solar",
+  "brand": {
+    "name": "Foralum Solar",
+    "title": "FORALUM SOLAR",
+    "logo_src": "assets/img/brand/foralumSolar.png",
+    "logo_alt": "Logo de Foralum Solar"
+  },
+  "contact_info": {
+    "phone": "+34 623 191 321",
+    "phone_raw": "34623191321",
+    "email": "ventas@foralumsolar.es",
+    "whatsapp_text": "Hola Foralum Solar, me gustaría pedir información sobre una instalación fotovoltaica."
+  },
+  "forms": {
+    "contact_action": "https://formspree.io/f/mvzzrwej",
+    "contact_subject": "Nuevo contacto desde Foralum Solar"
+  },
+  "zones_label": "Euskadi y Cuenca",
+  "meta": {
+    "title": "Foralum Solar | Especialistas en fotovoltaica (Euskadi y Cuenca)",
+    "description": "Foralum Solar: especialistas en instalaciones fotovoltaicas y gestión de subvenciones (EVE e IDAE). Actuamos en Euskadi y Cuenca. Contacto por WhatsApp, teléfono o email."
+  },
+  "computed": {
+    "canonical_url": "https://www.foralumsolar.es/"
+  },
+  "hero": {
+    "eyebrow": "Euskadi y Cuenca",
+    "title": "Especialistas en fotovoltaica",
+    "lead": "Instalaciones fotovoltaicas para residencial, industrial y administraciones públicas. Máximas garantías del mercado y proveedores Tier 1.",
+    "kpis": [
+      {
+        "title": "Garantía y calidad",
+        "text": "Componentes Tier 1 y acabados profesionales"
+      },
+      {
+        "title": "Gestión de ayudas",
+        "text": "Tramitación de subvenciones EVE e IDAE"
+      },
+      {
+        "title": "Ámbito de actuación",
+        "text": "Euskadi y Cuenca"
+      }
+    ],
+    "image_alt": "Instalación fotovoltaica en cubierta con paneles solares"
+  },
+  "about": {
+    "lead": "Somos especialistas en instalaciones fotovoltaicas, con más de 10 años de experiencia. Sólo trabajamos con proveedores de la máxima calidad, Tier1.",
+    "cards": [
+      {
+        "title": "Soluciones a medida",
+        "text": "Analizamos el consumo, diseñamos la solución y ejecutamos la instalación con equipos de alta eficiencia."
+      },
+      {
+        "title": "Proyectos llave en mano",
+        "text": "Te entregamos la instalación legalizada y nos ocupamos de todas las gestiones necesarias: industria, subvenciones, etc..."
+      }
+    ]
+  },
+  "services": {
+    "lead": "Ejecutamos instalaciones fotovoltaicas y nos ocupamos de la gestión de ayudas.",
+    "cards": [
+      {
+        "title": "Instalaciones fotovoltaicas",
+        "text": "Soluciones para residencial, industrial y administraciones públicas, con diseño, instalación y puesta en marcha.",
+        "list": [
+          "Estudio y propuesta técnica",
+          "Montaje profesional y seguro",
+          "Componentes Tier 1 y máxmima garantía"
+        ]
+      },
+      {
+        "title": "Gestión de subvenciones (EVE e IDAE)",
+        "text": "Tramitamos ayudas para autoconsumo y almacenamiento.",
+        "list": [
+          "Asesoramiento sobre convocatorias",
+          "Preparación y presentación de documentación",
+          "Seguimiento hasta resolución"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "lead": "Algunos ejemplos representativos por categoría. Si quieres, te enseñamos casos similares al tuyo y te orientamos sobre la mejor solución."
+  },
+  "news": {
+    "lead": "Publicamos información relevante sobre convocatorias y avances del sector.",
+    "items": [
+      {
+        "date": "2026-01-16",
+        "date_label": "16/01/2026",
+        "title": "Abiertas las subvenciones del EVE para autoconsumo y almacenamiento",
+        "text": "Si estás valorando una instalación, este es un buen momento para estudiar la viabilidad y preparar la documentación con antelación."
+      }
+    ]
+  },
+  "contact": {
+    "lead": "Contacto directo por WhatsApp, teléfono o email. Actuamos en Euskadi y Cuenca.",
+    "quick_title": "Contacto rápido",
+    "quick_note": "Garantías: máximas garantías del mercado, proveedores Tier 1.",
+    "contact_link_label": "Ir a contacto"
+  },
+  "footer": {
+    "company_text": "Especialistas en instalaciones fotovoltaicas y gestión de subvenciones (EVE e IDAE). Actuamos en Euskadi y Cuenca con proveedores Tier 1 y máximas garantías.",
+    "copyright": "© 2025 Foralum Solar. Todos los derechos reservados."
+  },
+  "locations": [
+    {
+      "label": "Sede",
+      "contact_line": "Ronda Sur 29, 16200 Motilla del Palancar (Cuenca)",
+      "footer_lines": ["Ronda Sur 29", "16200 Motilla del Palancar", "Cuenca"]
+    },
+    {
+      "label": "Delegación Euskadi",
+      "contact_line": "Bista-Eder Kalea 10, 20600 Eibar",
+      "footer_lines": ["Bista-Eder Kalea 10", "20600 Eibar"]
+    }
+  ],
+  "sections": {
+    "about": {
+      "eyebrow": "Sobre nosotros",
+      "title": "Fotovoltaica con calidad y total garantía"
+    },
+    "services": {
+      "eyebrow": "Servicios",
+      "title": "Fotovoltaica y subvenciones, de principio a fin"
+    },
+    "projects": {
+      "eyebrow": "Proyectos",
+      "title": "Experiencia real en distintos entornos"
+    },
+    "news": {
+      "eyebrow": "Noticias",
+      "title": "Actualidad y subvenciones"
+    },
+    "contact": {
+      "eyebrow": "Contacto",
+      "title": "Hablemos de tu proyecto",
+      "form_title": "Envíanos un mensaje"
+    }
+  }
+}

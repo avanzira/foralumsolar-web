@@ -98,6 +98,7 @@ section[id] {
   padding: 3.25rem 0;
 }
 
+
 .section-header {
   margin-bottom: 1.25rem;
 }
@@ -354,7 +355,7 @@ section[id] {
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.6;
-  max-width: 60ch;
+  max-width: none;
 }
 
 .list {
@@ -427,7 +428,7 @@ section[id] {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
