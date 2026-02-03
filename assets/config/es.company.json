@@ -1,5 +1,5 @@
 {
-  "brand_name": "Foralum Solar",
+  "id": 1,
   "brand": {
     "name": "Foralum Solar",
     "title": "FORALUM SOLAR",
@@ -19,10 +19,12 @@
   "zones_label": "Euskadi y Cuenca",
   "meta": {
     "title": "Foralum Solar | Especialistas en fotovoltaica (Euskadi y Cuenca)",
-    "description": "Foralum Solar: especialistas en instalaciones fotovoltaicas y gestión de subvenciones (EVE e IDAE). Actuamos en Euskadi y Cuenca. Contacto por WhatsApp, teléfono o email."
+    "description": "Foralum Solar: especialistas en instalaciones fotovoltaicas y gestión de subvenciones (EVE e IDAE). Actuamos en Euskadi y Cuenca. Contacto por WhatsApp, teléfono o email.",
+    "og_image": "https://foralumsolar.es/assets/img/hero/hero-1200.webp",
+    "og_image_alt": "Instalación fotovoltaica en cubierta con paneles solares"
   },
   "computed": {
-    "canonical_url": "https://www.foralumsolar.es/"
+    "canonical_url": "https://foralumsolar.es/"
   },
   "hero": {
     "eyebrow": "Euskadi y Cuenca",
@@ -57,42 +59,8 @@
       }
     ]
   },
-  "services": {
-    "lead": "Ejecutamos instalaciones fotovoltaicas y nos ocupamos de la gestión de ayudas.",
-    "cards": [
-      {
-        "title": "Instalaciones fotovoltaicas",
-        "text": "Soluciones para residencial, industrial y administraciones públicas, con diseño, instalación y puesta en marcha.",
-        "list": [
-          "Estudio y propuesta técnica",
-          "Montaje profesional y seguro",
-          "Componentes Tier 1 y máxmima garantía"
-        ]
-      },
-      {
-        "title": "Gestión de subvenciones (EVE e IDAE)",
-        "text": "Tramitamos ayudas para autoconsumo y almacenamiento.",
-        "list": [
-          "Asesoramiento sobre convocatorias",
-          "Preparación y presentación de documentación",
-          "Seguimiento hasta resolución"
-        ]
-      }
-    ]
-  },
   "projects": {
     "lead": "Algunos ejemplos representativos por categoría. Si quieres, te enseñamos casos similares al tuyo y te orientamos sobre la mejor solución."
-  },
-  "news": {
-    "lead": "Publicamos información relevante sobre convocatorias y avances del sector.",
-    "items": [
-      {
-        "date": "2026-01-16",
-        "date_label": "16/01/2026",
-        "title": "Abiertas las subvenciones del EVE para autoconsumo y almacenamiento",
-        "text": "Si estás valorando una instalación, este es un buen momento para estudiar la viabilidad y preparar la documentación con antelación."
-      }
-    ]
   },
   "contact": {
     "lead": "Contacto directo por WhatsApp, teléfono o email. Actuamos en Euskadi y Cuenca.",

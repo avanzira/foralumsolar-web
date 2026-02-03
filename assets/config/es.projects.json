@@ -1,91 +1,177 @@
 {
-  "sections": {
-    "section1": {
-      "order": 1,
-      "aria_label": "Proyectos industriales",
-      "title": "Industrial",
-      "description": "Ejemplo: Agme",
-      "gallery_label": "Galería industrial",
-      "projects": {
-        "section1_project1": {
-          "order": 1,
+  "project_id": 1,
+  "company_id": 1,
+  "sections": [
+    {
+      "id": 1,
+      "project_id": 1,
+      "name": "Industrial",
+      "slug": "industrial",
+      "details": [
+        {
+          "id": 1,
+          "section_id": 1,
+          "name": "Proyecto industrial Agme (fotografía 1)",
+          "slug": "proyecto-industrial-agme-fotografia-1",
           "image": "assets/img/projects/industrial/industrial-01-640.webp?v=20260120",
-          "alt": "Proyecto industrial Agme (fotografía 1)"
+          "alt": "Proyecto industrial Agme (fotografía 1)",
+          "description": "Proyecto industrial Agme (fotografía 1)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section1_project2": {
-          "order": 2,
+        {
+          "id": 2,
+          "section_id": 1,
+          "name": "Proyecto industrial Agme (fotografía 2)",
+          "slug": "proyecto-industrial-agme-fotografia-2",
           "image": "assets/img/projects/industrial/industrial-02-640.webp?v=20260120",
-          "alt": "Proyecto industrial Agme (fotografía 2)"
+          "alt": "Proyecto industrial Agme (fotografía 2)",
+          "description": "Proyecto industrial Agme (fotografía 2)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section1_project3": {
-          "order": 3,
+        {
+          "id": 3,
+          "section_id": 1,
+          "name": "Instalación fotovoltaica industrial (detalle de paneles)",
+          "slug": "instalacion-fotovoltaica-industrial-detalle-de-paneles",
           "image": "assets/img/projects/industrial/industrial-03-640.webp?v=20260120",
-          "alt": "Instalación fotovoltaica industrial (detalle de paneles)"
+          "alt": "Instalación fotovoltaica industrial (detalle de paneles)",
+          "description": "Instalación fotovoltaica industrial (detalle de paneles)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         }
-      }
+      ],
+      "description": "Proyectos fotovoltaicos para clientes industriales"
     },
-    "section2": {
-      "order": 2,
-      "aria_label": "Proyectos de administraciones públicas",
-      "title": "Administraciones públicas",
-      "description": "Ejemplos: Buenache de Alarcón y Amorebieta (Polideportivo, Larrea Eskola, Haurreskola)",
-      "gallery_label": "Galería administraciones públicas",
-      "projects": {
-        "section2_project1": {
-          "order": 1,
+    {
+      "id": 2,
+      "project_id": 1,
+      "name": "Administraciones públicas",
+      "slug": "administraciones-publicas",
+      "details": [
+        {
+          "id": 1,
+          "section_id": 2,
+          "name": "Proyecto en administración pública (fotografía 1)",
+          "slug": "proyecto-en-administracion-publica-fotografia-1",
           "image": "assets/img/projects/administraciones/admin-01-640.webp?v=20260120",
-          "alt": "Proyecto en administración pública (fotografía 1)"
+          "alt": "Proyecto en administración pública (fotografía 1)",
+          "description": "Proyecto en administración pública (fotografía 1)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section2_project2": {
-          "order": 2,
+        {
+          "id": 2,
+          "section_id": 2,
+          "name": "Proyecto en administración pública (fotografía 2)",
+          "slug": "proyecto-en-administracion-publica-fotografia-2",
           "image": "assets/img/projects/administraciones/admin-02-640.webp?v=20260120",
-          "alt": "Proyecto en administración pública (fotografía 2)"
+          "alt": "Proyecto en administración pública (fotografía 2)",
+          "description": "Proyecto en administración pública (fotografía 2)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section2_project3": {
-          "order": 3,
+        {
+          "id": 3,
+          "section_id": 2,
+          "name": "Instalación fotovoltaica en edificio público (detalle)",
+          "slug": "instalacion-fotovoltaica-en-edificio-publico-detalle",
           "image": "assets/img/projects/administraciones/admin-03-640.webp?v=20260120",
-          "alt": "Instalación fotovoltaica en edificio público (detalle)"
+          "alt": "Instalación fotovoltaica en edificio público (detalle)",
+          "description": "Instalación fotovoltaica en edificio público (detalle)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         }
-      }
+      ],
+      "description": "Instalaciones para administraciones públicas y centros municipales"
     },
-    "section3": {
-      "order": 3,
-      "aria_label": "Proyectos residenciales",
-      "title": "Residencial",
-      "description": "Ejemplos: Mallabia, Arrasate, Plentzia, Motilla del Palancar, Buenache de Alarcón, Valverde de Júcar",
-      "gallery_label": "Galería residencial",
-      "projects": {
-        "section3_project1": {
-          "order": 1,
+    {
+      "id": 3,
+      "project_id": 1,
+      "name": "Residencial",
+      "slug": "residencial",
+      "details": [
+        {
+          "id": 1,
+          "section_id": 3,
+          "name": "Proyecto residencial en Mallabia (fotografía 1)",
+          "slug": "proyecto-residencial-en-mallabia-fotografia-1",
           "image": "assets/img/projects/residencial/res-01-640.webp?v=20260120",
-          "alt": "Proyecto residencial en Mallabia (fotografía 1)"
+          "alt": "Proyecto residencial en Mallabia (fotografía 1)",
+          "description": "Proyecto residencial en Mallabia (fotografía 1)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section3_project2": {
-          "order": 2,
+        {
+          "id": 2,
+          "section_id": 3,
+          "name": "Proyecto residencial en Arrasate (fotografía 2)",
+          "slug": "proyecto-residencial-en-arrasate-fotografia-2",
           "image": "assets/img/projects/residencial/res-02-640.webp?v=20260120",
-          "alt": "Proyecto residencial en Arrasate (fotografía 2)"
+          "alt": "Proyecto residencial en Arrasate (fotografía 2)",
+          "description": "Proyecto residencial en Arrasate (fotografía 2)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section3_project3": {
-          "order": 3,
+        {
+          "id": 3,
+          "section_id": 3,
+          "name": "Proyecto residencial en Plentzia (fotografía 3)",
+          "slug": "proyecto-residencial-en-plentzia-fotografia-3",
           "image": "assets/img/projects/residencial/res-03-640.webp?v=20260120",
-          "alt": "Proyecto residencial en Plentzia (fotografía 3)"
+          "alt": "Proyecto residencial en Plentzia (fotografía 3)",
+          "description": "Proyecto residencial en Plentzia (fotografía 3)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section3_project4": {
-          "order": 4,
+        {
+          "id": 4,
+          "section_id": 3,
+          "name": "Proyecto residencial en Motilla del Palancar (fotografía 4)",
+          "slug": "proyecto-residencial-en-motilla-del-palancar-fotografia-4",
           "image": "assets/img/projects/residencial/res-04-640.webp?v=20260120",
-          "alt": "Proyecto residencial en Motilla del Palancar (fotografía 4)"
+          "alt": "Proyecto residencial en Motilla del Palancar (fotografía 4)",
+          "description": "Proyecto residencial en Motilla del Palancar (fotografía 4)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section3_project5": {
-          "order": 5,
+        {
+          "id": 5,
+          "section_id": 3,
+          "name": "Proyecto residencial en Buenache de Alarcón (fotografía 5)",
+          "slug": "proyecto-residencial-en-buenache-de-alarcon-fotografia-5",
           "image": "assets/img/projects/residencial/res-05-640.webp?v=20260120",
-          "alt": "Proyecto residencial en Buenache de Alarcón (fotografía 5)"
+          "alt": "Proyecto residencial en Buenache de Alarcón (fotografía 5)",
+          "description": "Proyecto residencial en Buenache de Alarcón (fotografía 5)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         },
-        "section3_project6": {
-          "order": 6,
+        {
+          "id": 6,
+          "section_id": 3,
+          "name": "Proyecto residencial en Valverde de Júcar (fotografía 6)",
+          "slug": "proyecto-residencial-en-valverde-de-jucar-fotografia-6",
           "image": "assets/img/projects/residencial/res-06-640.webp?v=20260120",
-          "alt": "Proyecto residencial en Valverde de Júcar (fotografía 6)"
+          "alt": "Proyecto residencial en Valverde de Júcar (fotografía 6)",
+          "description": "Proyecto residencial en Valverde de Júcar (fotografía 6)",
+          "briefing": null,
+          "date": null,
+          "date_label": null
         }
-      }
+      ],
+      "description": "Proyectos para viviendas y comunidades residenciales"
     }
-  }
+  ]
 }

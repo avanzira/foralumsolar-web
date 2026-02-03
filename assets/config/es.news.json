@@ -1,0 +1,27 @@
+{
+  "news_id": 1,
+  "company_id": 1,
+  "lead": "Publicamos información relevante sobre convocatorias y avances del sector.",
+  "sections": [
+    {
+      "id": 1,
+      "news_id": 1,
+      "name": "Actualidad",
+      "slug": "actualidad",
+      "details": [
+        {
+          "id": 1,
+          "section_id": 1,
+          "name": "Abiertas las subvenciones del EVE para autoconsumo y almacenamiento",
+          "slug": "abiertas-subvenciones-eve-autoconsumo-almacenamiento",
+          "date": "2026-01-16",
+          "date_label": "16/01/2026",
+          "description": "Si estás valorando una instalación, este es un buen momento para estudiar la viabilidad y preparar la documentación con antelación.",
+          "briefing": null,
+          "image": null,
+          "alt": null
+        }
+      ]
+    }
+  ]
+}

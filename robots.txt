@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.foralumsolar.es/sitemap.xml
+Sitemap: https://foralumsolar.es/sitemap.xml

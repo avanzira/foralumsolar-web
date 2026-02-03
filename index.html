@@ -11,6 +11,29 @@
       content=""
       data-attr-content="company.meta.description"
     />
+    <meta property="og:title" content="" data-attr-content="company.meta.title" />
+    <meta
+      property="og:description"
+      content=""
+      data-attr-content="company.meta.description"
+    />
+    <meta property="og:url" content="" data-attr-content="company.computed.canonical_url" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="" data-attr-content="company.brand.name" />
+    <meta property="og:image" content="" data-attr-content="company.meta.og_image" />
+    <meta
+      property="og:image:alt"
+      content=""
+      data-attr-content="company.meta.og_image_alt"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="" data-attr-content="company.meta.title" />
+    <meta
+      name="twitter:description"
+      content=""
+      data-attr-content="company.meta.description"
+    />
+    <meta name="twitter:image" content="" data-attr-content="company.meta.og_image" />
     <script>
       (function () {
         const path = window.location.pathname;
@@ -30,13 +53,13 @@
   </head>
 
   <body>
-    <a class="skip-link" href="#main" data-text="infrastructure.skip_link"></a>
+    <a class="skip-link" href="#home" data-text="infrastructure.skip_link"></a>
 
     <header class="site-header" role="banner">
       <div class="container header-inner">
         <a
           class="brand"
-          href="#main"
+          href="#home"
           aria-label=""
           data-attr-aria-label="infrastructure.aria.brand_home"
         >
@@ -190,6 +213,9 @@
         data-attr-aria-label="infrastructure.nav.about"
       >
         <div class="container">
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
           <div class="section-header">
             <div
               class="eyebrow"
@@ -200,6 +226,9 @@
           </div>
 
           <div class="grid grid-2" id="about-cards"></div>
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
         </div>
       </section>
 
@@ -213,16 +242,22 @@
         data-attr-aria-label="infrastructure.nav.services"
       >
         <div class="container">
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
           <div class="section-header">
             <div
               class="eyebrow"
               data-text="company.sections.services.eyebrow"
             ></div>
             <h2 class="h2" data-text="company.sections.services.title"></h2>
-            <p class="lead" data-text="company.services.lead"></p>
+            <p class="lead" data-text="services.lead"></p>
           </div>
 
-          <div class="grid grid-2" id="services-cards"></div>
+          <div class="grid grid-3" id="services-cards"></div>
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
         </div>
       </section>
 
@@ -236,6 +271,9 @@
         data-attr-aria-label="infrastructure.nav.projects"
       >
         <div class="container">
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
           <div class="section-header">
             <div
               class="eyebrow"
@@ -246,6 +284,9 @@
           </div>
 
           <div class="grid grid-gap-lg" id="projects-grid"></div>
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
         </div>
       </section>
 
@@ -259,16 +300,22 @@
         data-attr-aria-label="infrastructure.nav.news"
       >
         <div class="container">
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
           <div class="section-header">
             <div
               class="eyebrow"
               data-text="company.sections.news.eyebrow"
             ></div>
             <h2 class="h2" data-text="company.sections.news.title"></h2>
-            <p class="lead" data-text="company.news.lead"></p>
+            <p class="lead" data-text="news.lead"></p>
           </div>
 
-          <div class="grid" id="news-grid"></div>
+          <div class="grid grid-3" id="news-grid"></div>
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
         </div>
       </section>
 
@@ -282,6 +329,9 @@
         data-attr-aria-label="infrastructure.nav.contact"
       >
         <div class="container">
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
           <div class="section-header">
             <div
               class="eyebrow"
@@ -380,6 +430,9 @@
 
             <!-- Contact locations card removed -->
           </div>
+          <div class="section-back">
+            <a href="#home" data-text="infrastructure.cta.back_home"></a>
+          </div>
         </div>
       </section>
     </main>
@@ -390,7 +443,7 @@
           aria-label=""
           data-attr-aria-label="infrastructure.aria.footer_company"
         >
-          <h2 class="footer-title" data-text="company.brand_name"></h2>
+          <h2 class="footer-title" data-text="company.brand.name"></h2>
           <p class="footer-text" data-text="company.footer.company_text"></p>
 
           <ul class="footer-contact">

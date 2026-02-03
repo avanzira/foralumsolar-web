@@ -1,0 +1,40 @@
+{
+  "service_id": 1,
+  "company_id": 1,
+  "lead": "Ejecutamos instalaciones fotovoltaicas y nos ocupamos de la gestión de ayudas.",
+  "sections": [
+    {
+      "id": 1,
+      "service_id": 1,
+      "name": "Servicios principales",
+      "slug": "servicios-principales",
+      "description": "",
+      "details": [
+        {
+          "id": 1,
+          "section_id": 1,
+          "name": "Instalaciones fotovoltaicas",
+          "slug": "instalaciones-fotovoltaicas",
+          "description": "Soluciones para residencial, industrial y administraciones públicas, con diseño, instalación y puesta en marcha.",
+          "briefing": "Estudio y propuesta técnica. Montaje profesional y seguro. Componentes Tier 1 y máxima garantía.",
+          "image": null,
+          "alt": null,
+          "date": null,
+          "date_label": null
+        },
+        {
+          "id": 2,
+          "section_id": 1,
+          "name": "Gestión de subvenciones (EVE e IDAE)",
+          "slug": "gestion-de-subvenciones-eve-idae",
+          "description": "Tramitamos ayudas para autoconsumo y almacenamiento.",
+          "briefing": "Asesoramiento sobre convocatorias. Preparación y presentación de documentación. Seguimiento hasta resolución.",
+          "image": null,
+          "alt": null,
+          "date": null,
+          "date_label": null
+        }
+      ]
+    }
+  ]
+}

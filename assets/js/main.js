@@ -26,6 +26,186 @@ const resolveString = (value, data) => {
   return result;
 };
 
+const isNonEmptyString = (value) =>
+  typeof value === "string" && value.trim().length > 0;
+
+const warnRuntime = (message) => {
+  console.warn(`[RuntimeValidation] ${message}`);
+};
+
+const renderDetailCard = (detail, data) => {
+  const title = resolveString(detail.name, data);
+  const description = resolveString(detail.description || "", data);
+  const briefing = resolveString(detail.briefing || "", data);
+  const image = resolveString(detail.image || "", data);
+  const alt = resolveString(detail.alt || "", data);
+  const dateValue = resolveString(detail.date || "", data);
+  const dateLabel = resolveString(detail.date_label || "", data);
+  const showImage = isNonEmptyString(image);
+  const showTime = isNonEmptyString(dateLabel || dateValue);
+  const showDescription = isNonEmptyString(description);
+  const showBriefing = isNonEmptyString(briefing);
+
+  return `
+      <article class="card">
+        ${
+          showImage
+            ? `<img class="card-media" src="${image}" alt="${alt}" loading="lazy" decoding="async" />`
+            : ""
+        }
+        ${showTime ? `<time class="card-meta" datetime="${dateValue}">${dateLabel || dateValue}</time>` : ""}
+        <h3>${title}</h3>
+        ${showDescription ? `<p class="card-desc">${description}</p>` : ""}
+        ${showBriefing ? `<p class="card-brief">${briefing}</p>` : ""}
+      </article>`;
+};
+
+const validateProjects = (projects) => {
+  if (!projects || typeof projects !== "object") {
+    warnRuntime("projects payload missing or invalid.");
+    return;
+  }
+
+  const sections = Array.isArray(projects.sections) ? projects.sections : [];
+  if (!sections.length) {
+    warnRuntime("projects.sections is empty.");
+  }
+
+  const sectionIds = new Set();
+  const sectionSlugs = new Set();
+  const detailSlugsBySection = new Map();
+  const detailIdsBySection = new Map();
+
+  sections.forEach((section, index) => {
+    const prefix = `projects.sections[${index}]`;
+    if (!section || typeof section !== "object") {
+      warnRuntime(`${prefix} is not an object.`);
+      return;
+    }
+
+    if (typeof section.id !== "number") {
+      warnRuntime(`${prefix}.id is required and must be a number.`);
+    } else if (sectionIds.has(section.id)) {
+      warnRuntime(`${prefix}.id ${section.id} is duplicated.`);
+    } else {
+      sectionIds.add(section.id);
+    }
+
+    if (!isNonEmptyString(section.name)) {
+      warnRuntime(`${prefix}.name is required.`);
+    }
+
+    if (!isNonEmptyString(section.slug)) {
+      warnRuntime(`${prefix}.slug is required.`);
+    } else if (sectionSlugs.has(section.slug)) {
+      warnRuntime(`${prefix}.slug "${section.slug}" is duplicated.`);
+    } else {
+      sectionSlugs.add(section.slug);
+    }
+
+    const details = Array.isArray(section.details) ? section.details : [];
+    if (!details.length) {
+      warnRuntime(`${prefix}.details is empty.`);
+    }
+
+    details.forEach((detail, detailIndex) => {
+      const detailPrefix = `${prefix}.details[${detailIndex}]`;
+      if (!detail || typeof detail !== "object") {
+        warnRuntime(`${detailPrefix} is not an object.`);
+        return;
+      }
+
+      if (typeof detail.id !== "number") {
+        warnRuntime(`${detailPrefix}.id is required and must be a number.`);
+      } else {
+        const seenIds = detailIdsBySection.get(section.id) || new Set();
+        if (seenIds.has(detail.id)) {
+          warnRuntime(
+            `${detailPrefix}.id ${detail.id} is duplicated in section ${section.id}.`
+          );
+        }
+        seenIds.add(detail.id);
+        detailIdsBySection.set(section.id, seenIds);
+      }
+
+      if (typeof detail.section_id !== "number") {
+        warnRuntime(`${detailPrefix}.section_id is required and must be a number.`);
+      } else if (typeof section.id === "number" && detail.section_id !== section.id) {
+        warnRuntime(
+          `${detailPrefix}.section_id ${detail.section_id} does not match section ${section.id}.`
+        );
+      }
+
+      if (!isNonEmptyString(detail.name)) {
+        warnRuntime(`${detailPrefix}.name is required.`);
+      }
+
+      if (!isNonEmptyString(detail.slug)) {
+        warnRuntime(`${detailPrefix}.slug is required.`);
+      } else {
+        const seenSlugs = detailSlugsBySection.get(section.id) || new Set();
+        if (seenSlugs.has(detail.slug)) {
+          warnRuntime(
+            `${detailPrefix}.slug "${detail.slug}" is duplicated in section ${section.id}.`
+          );
+        }
+        seenSlugs.add(detail.slug);
+        detailSlugsBySection.set(section.id, seenSlugs);
+      }
+
+      if (!isNonEmptyString(detail.image)) {
+        warnRuntime(`${detailPrefix}.image is required.`);
+      } else if (
+        /^https?:\/\//i.test(detail.image) ||
+        /^\/\//.test(detail.image) ||
+        /^data:/i.test(detail.image)
+      ) {
+        warnRuntime(`${detailPrefix}.image must be relative.`);
+      } else if (detail.image.startsWith("/")) {
+        warnRuntime(`${detailPrefix}.image is root-relative; prefer relative paths.`);
+      }
+
+      if (!isNonEmptyString(detail.alt)) {
+        warnRuntime(`${detailPrefix}.alt is required.`);
+      }
+    });
+  });
+};
+
+const validateDatasetMeta = (dataset, label, companyId) => {
+  if (!dataset || typeof dataset !== "object") {
+    warnRuntime(`${label} payload missing or invalid.`);
+    return;
+  }
+  if (typeof dataset.company_id !== "number") {
+    warnRuntime(`${label}.company_id is required and must be a number.`);
+  } else if (typeof companyId === "number" && dataset.company_id !== companyId) {
+    warnRuntime(
+      `${label}.company_id ${dataset.company_id} does not match company.id ${companyId}.`
+    );
+  }
+};
+
+const validateRuntimeContent = (site, company, projects) => {
+  if (!site?.infrastructure) {
+    warnRuntime("site.infrastructure is required.");
+  }
+  if (!company || typeof company !== "object") {
+    warnRuntime("company payload missing or invalid.");
+  } else {
+    if (typeof company.id !== "number") {
+      warnRuntime("company.id is required and must be a number.");
+    }
+    if (!isNonEmptyString(company?.brand?.name)) {
+      warnRuntime("company.brand.name is required.");
+    }
+    if (!isNonEmptyString(company?.brand?.logo_src)) {
+      warnRuntime("company.brand.logo_src is required.");
+    }
+  }
+  validateProjects(projects);
+};
+
 const applyTextBindings = (root, data) => {
   root.querySelectorAll("[data-text]").forEach((el) => {
     const key = el.dataset.text;
@@ -99,61 +279,70 @@ const buildCards = (container, cards, data) => {
     .join("");
 };
 
+const getGridClass = (count) => {
+  if (count <= 1) return "grid-1";
+  if (count === 2) return "grid-2";
+  return "grid-3";
+};
+
+const buildServices = (container, sections, data) => {
+  if (!container) return;
+  const orderedSections = (sections || []).slice().sort(
+    (a, b) => (a.id ?? 0) - (b.id ?? 0)
+  );
+  const details = orderedSections.flatMap((section) =>
+    (section.details || []).slice().sort((a, b) => (a.id ?? 0) - (b.id ?? 0))
+  );
+  container.classList.remove("grid-1", "grid-2", "grid-3");
+  container.classList.add(getGridClass(details.length));
+  container.innerHTML = details.map((detail) => renderDetailCard(detail, data)).join("");
+};
+
 const buildProjects = (container, sections, data) => {
   if (!container) return;
-  const orderedSections = Object.values(sections || {}).sort(
-    (a, b) => a.order - b.order
+  const orderedSections = (sections || []).slice().sort(
+    (a, b) => (a.id ?? 0) - (b.id ?? 0)
   );
   container.innerHTML = orderedSections
     .map((section) => {
-      const projects = Object.values(section.projects || {}).sort(
-        (a, b) => a.order - b.order
+      const projects = (section.details || []).slice().sort(
+        (a, b) => (a.id ?? 0) - (b.id ?? 0)
       );
-      const thumbs = projects
-        .map(
-          (project) => `
-            <div class="thumb">
-              <img
-                src="${project.image}"
-                alt="${resolveString(project.alt, data)}"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>`
-        )
+      const cards = projects
+        .map((project) => renderDetailCard(project, data))
         .join("");
+      const sectionDesc = resolveString(section.description || "", data);
       return `
         <section class="card" aria-label="${resolveString(
-          section.aria_label,
+          section.name,
           data
         )}">
           <div class="category">
-            <h3 class="category-title">${resolveString(section.title, data)}</h3>
+            <h3 class="category-title">${resolveString(section.name, data)}</h3>
           </div>
-          <p class="category-desc">${resolveString(section.description, data)}</p>
-          <div class="thumbs" aria-label="${resolveString(
-            section.gallery_label,
+          ${sectionDesc ? `<p class="category-desc">${sectionDesc}</p>` : ""}
+          <div class="grid grid-3" aria-label="${resolveString(
+            section.name,
             data
           )}">
-            ${thumbs}
+            ${cards}
           </div>
         </section>`;
     })
     .join("");
 };
 
-const buildNews = (container, items, data) => {
+const buildNews = (container, sections, data) => {
   if (!container) return;
-  container.innerHTML = (items || [])
-    .map(
-      (item) => `
-      <article class="card news-item">
-        <time datetime="${item.date}">${item.date_label}</time>
-        <h3 class="news-title">${resolveString(item.title, data)}</h3>
-        <p>${resolveString(item.text, data)}</p>
-      </article>`
-    )
-    .join("");
+  const orderedSections = (sections || []).slice().sort(
+    (a, b) => (a.id ?? 0) - (b.id ?? 0)
+  );
+  const details = orderedSections.flatMap((section) =>
+    (section.details || []).slice().sort((a, b) => (a.id ?? 0) - (b.id ?? 0))
+  );
+  container.classList.remove("grid-1", "grid-2", "grid-3");
+  container.classList.add(getGridClass(details.length));
+  container.innerHTML = details.map((detail) => renderDetailCard(detail, data)).join("");
 };
 
 const buildContactLocations = (container, locations, data) => {
@@ -200,16 +389,24 @@ let runtimeContent = null;
 let runtimeConfig = null;
 
 const renderRuntimeContent = async () => {
-  const [site, company, projects] = await Promise.all([
+  const [site, company, projects, services, news] = await Promise.all([
     fetch("assets/config/es.site.json").then((res) => res.json()),
     fetch("assets/config/es.company.json").then((res) => res.json()),
-    fetch("assets/config/es.projects.json").then((res) => res.json())
+    fetch("assets/config/es.projects.json").then((res) => res.json()),
+    fetch("assets/config/es.services.json").then((res) => res.json()),
+    fetch("assets/config/es.news.json").then((res) => res.json())
   ]);
+
+  validateRuntimeContent(site, company, projects);
+  validateDatasetMeta(services, "services", company?.id);
+  validateDatasetMeta(news, "news", company?.id);
 
   const data = {
     site,
     infrastructure: site.infrastructure,
-    company
+    company,
+    services,
+    news
   };
 
   runtimeContent = site.infrastructure;
@@ -231,13 +428,13 @@ const renderRuntimeContent = async () => {
     company.about.cards,
     data
   );
-  buildCards(
+  buildServices(
     document.getElementById("services-cards"),
-    company.services.cards,
+    services.sections,
     data
   );
   buildProjects(document.getElementById("projects-grid"), projects.sections, data);
-  buildNews(document.getElementById("news-grid"), company.news.items, data);
+  buildNews(document.getElementById("news-grid"), news.sections, data);
   buildFooterLocations(
     document.getElementById("footer-locations"),
     company.locations,
@@ -281,6 +478,70 @@ document.addEventListener("DOMContentLoaded", async () => {
   const nav = document.getElementById("site-nav");
 
   if (toggle && nav) {
+    const navLinks = Array.from(nav.querySelectorAll("[data-nav-link]"));
+    const linkById = new Map(
+      navLinks
+        .map((link) => {
+          const targetId = (link.getAttribute("href") || "").replace("#", "");
+          return targetId ? [targetId, link] : null;
+        })
+        .filter(Boolean)
+    );
+
+    const setActiveLink = (activeId) => {
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", linkById.get(activeId) === link);
+      });
+    };
+
+    const sections = Array.from(document.querySelectorAll("main section[id]"));
+    if (sections.length) {
+      const updateActiveByScroll = () => {
+        const marker = window.innerHeight * 0.35;
+        let bestId = null;
+        let bestDistance = Infinity;
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          const within = rect.top <= marker && rect.bottom >= marker;
+          const distance = Math.abs(rect.top - marker);
+          if (within && distance < bestDistance) {
+            bestId = section.id;
+            bestDistance = distance;
+          } else if (!within && distance < bestDistance) {
+            bestId = section.id;
+            bestDistance = distance;
+          }
+        });
+        if (bestId) setActiveLink(bestId);
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          if (visible.length) {
+            setActiveLink(visible[0].target.id);
+          }
+        },
+        { rootMargin: "-25% 0px -55% 0px", threshold: [0.1, 0.25, 0.5, 0.75] }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      let scrollTick = null;
+      const onScroll = () => {
+        if (scrollTick) return;
+        scrollTick = requestAnimationFrame(() => {
+          scrollTick = null;
+          updateActiveByScroll();
+        });
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      updateActiveByScroll();
+    }
+
     toggle.addEventListener("click", () => {
       const isOpen = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
@@ -290,8 +551,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
     });
 
+    document.addEventListener("click", (event) => {
+      if (!nav.classList.contains("is-open")) return;
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (nav.contains(target) || toggle.contains(target)) return;
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", runtimeContent?.ui?.nav_open || "");
+    });
+
     nav.querySelectorAll("[data-nav-link]").forEach((link) => {
       link.addEventListener("click", () => {
+        const targetId = (link.getAttribute("href") || "").replace("#", "");
+        if (targetId) setActiveLink(targetId);
         if (nav.classList.contains("is-open")) {
           nav.classList.remove("is-open");
           toggle.setAttribute("aria-expanded", "false");

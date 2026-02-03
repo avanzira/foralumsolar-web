@@ -74,11 +74,11 @@
     },
     "legal": {
       "paragraphs": [
-        "Titular del sitio: {{company.brand_name}}. Contacto: <a href=\"mailto:{{company.contact_info.email}}\">{{company.contact_info.email}}</a> y telefono <a href=\"tel:+{{company.contact_info.phone_raw}}\">{{company.contact_info.phone}}</a>.",
+        "Titular del sitio: {{company.brand.name}}. Contacto: <a href=\"mailto:{{company.contact_info.email}}\">{{company.contact_info.email}}</a> y telefono <a href=\"tel:+{{company.contact_info.phone_raw}}\">{{company.contact_info.phone}}</a>.",
         "Domicilio: {{company.locations.0.contact_line}}.",
         "El usuario se compromete a un uso adecuado del sitio web y a no realizar acciones que puedan danar, inutilizar o sobrecargar el servicio.",
-        "La propiedad intelectual e industrial de los contenidos del sitio pertenece a {{company.brand_name}} o a sus licenciantes. Queda prohibida su reproduccion, distribucion o comunicacion publica sin autorizacion previa.",
-        "Este sitio puede incluir enlaces a terceros. {{company.brand_name}} no se responsabiliza del contenido ni de las politicas de dichos sitios.",
+        "La propiedad intelectual e industrial de los contenidos del sitio pertenece a {{company.brand.name}} o a sus licenciantes. Queda prohibida su reproduccion, distribucion o comunicacion publica sin autorizacion previa.",
+        "Este sitio puede incluir enlaces a terceros. {{company.brand.name}} no se responsabiliza del contenido ni de las politicas de dichos sitios.",
         "Para el ejercicio de derechos o cualquier consulta legal, escribe a <a href=\"mailto:{{company.contact_info.email}}\">{{company.contact_info.email}}</a>."
       ]
     }
